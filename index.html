@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="angularApp">
+<head>
+<meta charset='utf-8'>
+	<title>Angular JS</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/lib/angular.min.js"></script>	
+	<script type="text/javascript" src="js/lib/angular-route.js"></script>
+	<script type="text/javascript" src="js/controllers/script_routes.js"></script>
+	<script type="text/javascript" src="js/controllers/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
+</head>
+<body>
+<!-- Header -->
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">Angular JS </a>
+    <ul class="nav">
+       <li class="active"><a href="/angular/">Home</a></li>
+      <li class="active"><a href="/angular/#/users">Users</a></li>
+    </ul>
+  </div>
+</div>
+<!-- Header part end -->
+<!-- Yield  -->
+	
+	<div class="container" ng-controller="UsersController">
+	<div ng-view> </div>
+	</div>
+<!-- Yield Part End  -->
+</body>
+</html>

@@ -1,0 +1,44 @@
+	<div style="float:left;"><h2> Users</h2></div>
+	<div style="float:right;margin-top: 15px;"> <input ng-model="search.$" placeholder="Search"  /></div>
+	
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th><a href="" ng-click="predicate = 'name'; reverse=!reverse">Name</a></th>
+			<th><a href="" ng-click="predicate = 'age'; reverse=!reverse">Age</a></th>
+			<th><a href="" ng-click="predicate = 'gender'; reverse=!reverse">Gender</a></th>
+			<th><a href="" ng-click="predicate = 'company'; reverse=!reverse">Company</a></th>
+			<th><a href="" ng-click="predicate = 'email'; reverse=!reverse">Email</a></th>
+			<th><a href="" ng-click="predicate = 'phone'; reverse=!reverse">Phone</a></th>
+			<th><a href="" ng-click="predicate = 'address'; reverse=!reverse">Address</a></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="user in users | offset: currentPage*itemsPerPage | limitTo: itemsPerPage | orderBy:predicate:reverse | filter:search "> 
+			<td>{{user.name}}</td>
+			<td>{{user.age}}</td>
+			<td>{{user.gender}}</td>	
+			<td>{{user.company}}</td>
+			<td>{{user.email}}</td>	
+			<td>{{user.phone}}</td>
+			<td>{{user.address}}</td>
+		</tr>
+	</tbody>
+        <tfoot>
+          <td colspan="4">
+            <div class="pagination">
+              <ul>
+                <li ng-class="prevPageDisabled()">
+                  <a href ng-click="prevPage()">« Prev</a>
+                </li>
+                <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                  <a href="">{{n+1}}</a>
+                </li>
+                <li ng-class="nextPageDisabled()">
+                  <a href ng-click="nextPage()">Next »</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tfoot>
+	</table>
